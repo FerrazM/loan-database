@@ -1,4 +1,5 @@
 {% extends 'loans/base.html' %}
+{% load static %}
 {% block conteudo %}
 {% load crispy_forms_tags %}
 <div class="container">
@@ -10,3 +11,6 @@
     </form>
 </div>
 {% endblock %}
+
+<script src="{% static 'jquery.min.js' %}"></script>
+<script src="{% static 'jquery.mask.min.js' %}"></script>
