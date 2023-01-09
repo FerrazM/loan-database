@@ -1,0 +1,41 @@
+{% extends 'loans/base.html' %}
+{% block conteudo %}
+<h1 style='margin-top:50px; margin-bottom: 80px; text-align: center;'>Detalhes do Cliente<h1>
+<div class="container-fluid">
+    <table class='container table table-hover table-bordered table-sm'> 
+        <tr>   
+            <th>Id</th> 
+            <th>Nome</th> 
+            <th>CPF</th> 
+            <th>Telefone</th>  
+            <th>Valor do Empréstimo</th> 
+            <th>Juros %</th> 
+            <th>Pagamento Mensal %</th> 
+            <th>Data do Empréstimo</th> 
+            <th>Pagamento Mensal</th> 
+            <th>Pago</th> 
+        </tr>
+        <tr>
+            <td>{{dados.id}}</td>
+            <td>{{dados.nome}}</td>
+            <td>{{dados.cpf}}</td>
+            <td>{{dados.telefone}}</td>
+            <td>{{dados.valor}}</td>
+            <td>{{dados.juros}}</td>
+            <td>{{dados.pagamento_mensal}}</td>
+            <td>{{dados.data}}</td>
+            <td>{{dados.vencimento_mensal}}</td>
+            <td>{{dados.divida_total_paga}}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
+            
+            
+            
+            
+            
+            
+            
+            
+            
