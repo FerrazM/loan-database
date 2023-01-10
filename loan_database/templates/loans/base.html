@@ -13,7 +13,7 @@
   
   <body>
       <nav class="container-fluid navbar navbar-light" style="background-color: #000000">
-        <a class="text-white navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
+        <a class="text-white navbar" href="{% url 'clientes' %}">Página Inicial</a>
         <ul style="list-style: none;">
           {% if user.is_authenticated %}
           <li style="float: left">
