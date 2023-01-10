@@ -15,4 +15,5 @@ class Cliente(models.Model):
                             verbose_name='Data do empréstimo')
     vencimento_mensal = models.DateField(
         max_length=10, default=datetime.now, verbose_name='Data de pagamento')
-    divida_total_paga = models.BooleanField(default=False)
+    divida_total_paga = models.BooleanField(default=False,
+                                            verbose_name='Dívida paga')
