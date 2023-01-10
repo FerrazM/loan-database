@@ -12,8 +12,8 @@
   </head>
   
   <body>
-      <nav class="navbar navbar-dark bg-dark">
-        <a class="btn btn-primary text-white navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
+      <nav class="navbar navbar-light" style="background-color: #000000">
+        <a class="text-white navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
         <ul style="list-style: none;">
           {% if user.is_authenticated %}
           <li style="float: left">
