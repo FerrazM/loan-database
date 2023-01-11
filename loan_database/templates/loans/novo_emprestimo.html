@@ -12,15 +12,16 @@
 </div>
 {% endblock %}
 
-{% block scripts %}
-<script src="{% static 'js/jquery.mask.min.js' %}"></script>
 
+{% block scripts %}
+<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
 <script>
-    $(document.ready(function(){
-        $('.data').mask('00/00/0000');
-    }));
+    $(document).ready(function(){
+        $('#id_date').mask('00/00/0000')});
 </script>
-{% endblock scripts %}
+{% endblock %}
+
 
 
 
