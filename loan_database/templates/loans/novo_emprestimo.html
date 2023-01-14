@@ -1,6 +1,7 @@
 {% extends 'loans/base.html' %}
 {% load static %}
 {% block conteudo %}
+
 {% load crispy_forms_tags %}
 <div class="container">
     <h1 style='margin-top: 50px; margin-bottom: 30px;'>Formulário Novo Cliente</h1>
@@ -12,14 +13,10 @@
 </div>
 {% endblock %}
 
-
 {% block scripts %}
-<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
-<script src="{% static 'js/jquery.mask.min.js' %}"></script>
-<script>
-    $(document).ready(function(){
-        $('#id_date').mask('00/00/0000')});
-</script>
+    <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+    <script src="{% static 'js/mascara.js' %}"></script>
 {% endblock %}
 
 
