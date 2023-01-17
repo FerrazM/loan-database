@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'loan_database',
     'crispy_forms',
-    'usuarios'
+    'usuarios',
+    'static'
 ]
 
 MIDDLEWARE = [
