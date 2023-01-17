@@ -13,22 +13,22 @@
   </head>
   
   <body>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #000000">
-        <a class="text-white navbar" href="{% url 'clientes' %}">Página Inicial</a>
-        <ul style="list-style: none;">
+      <nav class="conatiner-fluid navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #000000">
+        <a class="nav justify-content-end text-white navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
+        <ul class="nav justify-content-end" style="list-style: none;">
           {% if user.is_authenticated %}
-          <li style="float: left">
-            <strong class="text-white nav-item nav-link">Bem-vindo {{user.get_username}}</strong>
+          <li class="nav-item">
+            <strong style="float: left" class="text-white nav-link">Bem-vindo {{user.get_username}}</strong>
           </li>
-          <li style="float: left">
-              <a class="nav-item nav-link" href="{% url 'logout' %}">Sair</a>
+          <li class="nav-item">
+              <a class=" nav-link" href="{% url 'logout' %}">Sair</a>
           </li>
           {% else %}
-          <li style="float: left">
-              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+          <li class="nav-item">
+              <a class=" nav-link" href="{% url 'login' %}">Login</a>
           </li>
-          <li style="float: left">      
-              <a class="nav-item nav-link" href="{% url 'novo_usuario' %}">Fazer Cadastro</a>
+          <li class="nav-item">      
+              <a class=" nav-link" href="{% url 'novo_usuario' %}">Fazer Cadastro</a>
           </li>
           {% endif %}
         </ul>
