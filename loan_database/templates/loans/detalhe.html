@@ -1,36 +1,42 @@
 {% extends 'loans/base.html' %}
 {% block conteudo %}
 <h1 style='margin-top:100px; margin-bottom: 80px; text-align: center;'>Detalhes do Cliente<h1>
-<div class="table-responsive-sm">
-    <table class='table table-hover table-bordered'> 
-        <tr>   
-            <th>Id</th> 
-            <th>Nome</th> 
-            <th>CPF</th> 
-            <th>Telefone</th>  
-            <th>Valor do Empréstimo</th> 
-            <th>Juros %</th> 
-            <th>Pagamento Mensal %</th> 
-            <th>Data do Empréstimo</th> 
-            <th>Pagamento Mensal</th> 
-            <th>Pago</th> 
-        </tr>
-        <tr>
-            <td>{{dados.id}}</td>
-            <td>{{dados.nome}}</td>
-            <td>{{dados.cpf}}</td>
-            <td>{{dados.telefone}}</td>
-            <td>{{dados.valor}}</td>
-            <td>{{dados.juros}}</td>
-            <td>{{dados.pagamento_mensal}}</td>
-            <td>{{dados.data}}</td>
-            <td>{{dados.vencimento_mensal}}</td>
-            {% if dado.divida_total_paga %}
-            <td style='text-align:center'><input disabled type='checkbox' checked></td>
-            {% else %}
-            <td style='text-align:center'><input disabled type='checkbox'></td>
-            {% endif %}
-        </tr>
+<div class="container">
+    <table class='container table table-hover table-bordered table-sm'>
+        <thead>
+            <tr>
+                <th>Nome</th> <td>{{dados.nome}}</td>
+            </tr>
+            <tr>
+                <th>CPF</th> <td>{{dados.cpf}}</td>
+            </tr>    
+            <tr>
+                <th>Telefone</th> <td>{{dados.telefone}}</td>
+            </tr>    
+            <tr>
+                <th>Valor do Empréstimo</th> <td>{{dados.valor}}</td>
+            </tr>
+            <tr>
+                <th>Juros %</th> <td>{{dados.juros}}</td>
+            </tr>    
+            <tr>
+                <th>Pagamento Mensal %</th> <td>{{dados.pagamento_mensal}}</td>
+            </tr>
+            <tr>
+                <th>Data do Empréstimo</th> <td>{{dados.data}}</td>
+            </tr>     
+            <tr>
+                <th>Pagamento Mensal</th>  <td>{{dados.vencimento_mensal}}</td>
+            </tr>    
+            <tr>    
+                <th>Pago</th> {% if dado.divida_total_paga %}
+                <td style='text-align:center'><input disabled type='checkbox' value="" id='divida_total_paga' checked></td>
+                {% else %}
+                <td style='text-align:center'><input disabled type='checkbox'></td>
+                {% endif %}
+            </tr>
+                 
+        </thead>
     </table>
 </div>
 {% endblock %}
