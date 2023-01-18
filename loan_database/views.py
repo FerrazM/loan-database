@@ -3,6 +3,7 @@ from .models import Cliente
 from .forms import ClienteForm
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def clientes(request):
     dados_cliente = {
@@ -10,12 +11,14 @@ def clientes(request):
     }
     return render(request, 'loans/clientes.html', dados_cliente)
 
+
 @login_required
 def detalhe(request, id_cliente):
     dados = {
         'dados': Cliente.objects.get(pk=id_cliente)
     }
     return render(request, 'loans/detalhe.html', dados)
+
 
 @login_required
 def criar(request):
@@ -31,6 +34,7 @@ def criar(request):
         }
         return render(request, 'loans/novo_emprestimo.html', context=formulario)
 
+
 @login_required
 def editar(request, id_cliente):
     cliente = Cliente.objects.get(pk=id_cliente)
@@ -42,6 +46,7 @@ def editar(request, id_cliente):
         if formulario.is_valid():
             formulario.save()
         return redirect('clientes')
+
 
 @login_required
 def excluir(request, id_cliente):
