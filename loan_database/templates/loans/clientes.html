@@ -17,12 +17,12 @@
     </tr>
     {% for dado in dados %}
     <tr>
-        <td>{{dado.id}}</td>
-        <td>{{dado.nome}}</td>
-        <td>{{dado.data}}</td>
-        <td>{{dado.vencimento_mensal}}</td>
-        <td>{{dado.pagamento_mensal}}</td>
-        {% if dado.divida_total_paga %}
+        <td>{{dados.id}}</td>
+        <td>{{dados.nome}}</td>
+        <td>{{dados.data}}</td>
+        <td>{{dados.vencimento_mensal}}</td>
+        <td>{{dados.pagamento_mensal}}</td>
+        {% if dados.divida_total_paga %}
         <td style='text-align:center'><input disabled type='checkbox' value="" id='divida_total_paga' checked></td>
         {% else %}
         <td style='text-align:center'><input disabled type='checkbox'></td>
