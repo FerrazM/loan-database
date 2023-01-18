@@ -38,14 +38,22 @@
         <div class="alert alert-{{ message.tags}}">{{message}}</div>
         {% endfor %}
         {% endif %}
+        
+        {% block conteudo %}
+
+        {% endblock %}
     
+        <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+        <script src="{% static 'js/jquery.mask.min.js' %}"></script>
+        <script src="{% static 'js/mascara.js' %}"></script>
+      
       {% block scripts %}
-      <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
-      <script src="{% static 'js/jquery.mask.min.js' %}"></script>
-      <script src="{% static 'js/mascara.js' %}"></script>
+
+      
+      
       {% endblock %}
-      {% block conteudo %}
-      {% endblock %}
+
+
     </body>
 </html>
     
