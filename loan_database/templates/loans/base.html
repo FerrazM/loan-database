@@ -13,9 +13,9 @@
   </head>
   
   <body>
-      <nav class="container-fluid fixed-top navbar-expand-lg navbar-light" style="background-color: #000000">
-        <a style="float:left"class="container text-white navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
-        <ul style="list-style: none;">
+      <nav class="navbar-fluid container-fluid fixed-top " style="background-color: #000000">
+        <a style="float:left;"class="container text-white navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
+        <ul style="float:right; list-style: none;">
           {% if user.is_authenticated %}
           <li style="float:left">
             <strong class="text-white nav-link">Bem-vindo {{user.get_username}}</strong>
