@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-x_b80z(jy)#@8*rxj7mgsqbthheweiub)uf^!6)k+pet)qhqqc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://loan-database-production.up.railway.app/']
+ALLOWED_HOSTS = ['loan-database-production.up.railway.app/']
 
 
 # Application definition
