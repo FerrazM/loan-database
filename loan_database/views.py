@@ -53,5 +53,5 @@ def excluir(request, id_cliente):
     cliente = Cliente.objects.get(pk=id_cliente)
     if request.method == 'POST':
         cliente.delete()
-        return redirect('clientes')
+        return redirect('loans/clientes.html')
     return render(request, 'loans/confirmar_exclusao.html', {'item': cliente})
