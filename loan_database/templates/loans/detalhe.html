@@ -2,38 +2,56 @@
 {% block conteudo %}
 <h1 style='margin-top:100px; margin-bottom: 80px; text-align: center;'>Detalhes do Cliente<h1>
 <div class="container">
-    <table class='table table-striped table-hover table-bordered table-lg'>
+    <table  class='table table-striped table-hover table-bordered table-lg'>
         <thead>
             <tr>
-                <th>Nome</th> <td>{{dados.nome}}</td>
+                <tbody>
+                    <th>Nome</th> <td style= "white-space: nowrap;">{{dados.nome}}</td>
+                </tbody> 
             </tr>
             <tr>
-                <th>CPF</th> <td>{{dados.cpf}}</td>
+                <tbody>
+                    <th>CPF</th> <td style= "white-space: nowrap;">{{dados.cpf}}</td>
+                </tbody>
             </tr>    
             <tr>
-                <th>Telefone</th> <td>{{dados.telefone}}</td>
+                <tbody>
+                    <th>Telefone</th> <td style= "white-space: nowrap;">{{dados.telefone}}</td>
+                </tbody>
             </tr>    
             <tr>
-                <th>Valor do Empréstimo</th> <td>{{dados.valor}}</td>
+                <tbody>
+                    <th>Valor do Empréstimo</th> <td style= "white-space: nowrap;">{{dados.valor}}</td>
+                </tbody>
             </tr>
             <tr>
-                <th>Juros %</th> <td>{{dados.juros}}</td>
+                <tbody>
+                    <th>Juros %</th> <td style= "white-space: nowrap;">{{dados.juros}}</td>
+                </tbody>
             </tr>    
             <tr>
-                <th>Pagamento Mensal %</th> <td>{{dados.pagamento_mensal}}</td>
+                <tbody>
+                    <th>Pagamento Mensal %</th> <td style= "white-space: nowrap;">{{dados.pagamento_mensal}}</td>
+                </tbody>
             </tr>
             <tr>
-                <th>Data do Empréstimo</th> <td>{{dados.data}}</td>
+                <tbody>
+                    <th>Data do Empréstimo</th> <td style= "white-space: nowrap;">{{dados.data}}</td>
+                </tbody>
             </tr>     
             <tr>
-                <th>Data de Pagamento</th>  <td>{{dados.vencimento_mensal}}</td>
+                <tbody>
+                    <th>Data de Pagamento</th>  <td style= "white-space: nowrap;">{{dados.vencimento_mensal}}</td>
+                </tbody>
             </tr>    
-            <tr>    
-                <th>Pago</th> {% if dado.divida_total_paga %}
-                <td style='text-align:center'><input  type='checkbox' value="" id='divida_total_paga' checked></td>
-                {% else %}
-                <td style='text-align:center'><input  type='checkbox'></td>
-                {% endif %}
+            <tr>
+                <tbody>
+                    <th>Pago</th> {% if dado.divida_total_paga %}
+                    <td style='text-align:center'><input  type='checkbox' value="" id='divida_total_paga' checked></td>
+                    {% else %}
+                    <td style='text-align:center'><input  type='checkbox'></td>
+                    {% endif %}
+                </tbody>    
             </tr>
         </thead>
     </table>
