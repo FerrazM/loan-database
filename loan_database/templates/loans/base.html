@@ -14,20 +14,20 @@
   
   <body>
       <nav class="navbar-fluid container-fluid fixed-top ">
-        <a style="float:left;"class="navbar navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
+        <a style="margin-top:50px; float:left;"class="navbar navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
         <ul style="float:right; list-style: none;">
           {% if user.is_authenticated %}
           <li style="float:left">
-            <strong class="text-white nav-link">Bem-vindo: {{user.get_username}}</strong>
+            <strong style="margin-top:50px;" class="text-info nav-link">Bem-vindo: {{user.get_username}}</strong>
           </li>
-          <li style="float:left">
+          <li  style="margin-top:50px; float:left">
               <a class= "nav-link" href="{% url 'logout' %}">Sair</a>
           </li>
           {% else %}
-          <li style="float:left">
+          <li style="margin-top:50px; float:left">
               <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
-          <li style="float:left">      
+          <li style="margin-top:50px; float:left">      
               <a class=" nav-link" href="{% url 'novo_usuario' %}">Fazer Cadastro</a>
           </li>
           {% endif %}
