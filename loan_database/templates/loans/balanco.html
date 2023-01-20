@@ -1,7 +1,7 @@
 {% extends 'loans/base.html' %}
 {% block conteudo %}
 <h1 style='margin-top:50px; margin-bottom: 80px; text-align: center;'>Balanço Clientes<h1>
-<div class="container-fluid">
+    <div class="container-fluid">
     <table class='container table table-hover table-bordered table-sm'> 
         <tr>   
             <th>Valor Total de Empréstimos Realizados</th> 
@@ -13,4 +13,9 @@
         </tr>
     </table>
 </div>
+{% endblock %}
+{% block scripts %}
+<script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
+<script src="{% static 'js/jquery.mask.min.js' %}"></script>
+<script src="{% static 'js/mascara.js' %}"></script>
 {% endblock %}

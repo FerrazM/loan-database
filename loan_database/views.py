@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect
 from .models import Cliente
 from .forms import ClienteForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+
 
 
 @login_required
