@@ -13,7 +13,7 @@ class ClienteForm(forms.ModelForm):
         self.fields['telefone'].widget.attrs.update({'class': 'mask-telefone'})
         self.fields['valor'].widget.attrs.update({'class': 'mask-valor'})
         self.fields['juros'].widget.attrs.update({'class': 'mask-juros'})
-        self.fields['pagamento_mensal'].widget.attrs.update(
+        self.fields['juros_mes'].widget.attrs.update(
             {'class': 'mask-pagamento'})
         self.fields['data'].widget.attrs.update({'class': 'mask-data'})
         self.fields['vencimento_mensal'].widget.attrs.update(
