@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, HttpResponse
 from .models import Cliente
 from .forms import ClienteForm
 from django.contrib.auth.decorators import login_required
+from django.db.models import Sum
 
 
 @login_required
@@ -55,3 +56,11 @@ def excluir(request, id_cliente):
         cliente.delete()
         return redirect('clientes')
     return render(request, 'loans/confirmar_exclusao.html', {'item': cliente})
+
+
+@login_required
+def somaemprestimos(request):
+    soma_valor = Cliente.objects.aggregate(Sum('valor'))
+    soma_pagamento = Cliente.objects.aggregate(Sum('juros_mes'))
+    context = {'soma_valor': soma_valor, 'soma_pagamento': soma_pagamento}
+    return render(request, 'loans/balanco.html', context)

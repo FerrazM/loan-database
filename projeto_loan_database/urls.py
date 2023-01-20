@@ -25,6 +25,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='usuarios/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='usuarios/logout.html'), name='logout'),
     path('', views.clientes, name='clientes'),
+     path('balanco/', views.somaemprestimos, name='balanco'),
     path('novo_emprestimo/', views.criar, name='novo_emprestimo'),
     path('novo_emprestimo/<int:id_cliente>', views.editar, name='editar'),
     path('excluir_cliente/<int:id_cliente>', views.excluir, name='excluir'),
