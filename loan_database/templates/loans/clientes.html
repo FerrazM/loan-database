@@ -15,7 +15,7 @@
     {% for dado in dados %}
     <tr style="text-align: center;">
         <td><a href="{% url 'detalhe' dado.id %}">{{dado.nome}}</a></td> 
-        <td>{{dado.pagamento_mensal}}</td>
+        <td>{{dado.juros_mes}}</td>
         <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
         <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
         {% if dado.divida_total_paga %}
