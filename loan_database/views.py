@@ -5,11 +5,10 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 
 
-
 @login_required
 def clientes(request):
     dados_cliente = {
-        'dados': Cliente.objects.all()
+        'dados': Cliente.objects.filter(usuario=request.user)
     }
     return render(request, 'loans/clientes.html', dados_cliente)
 
@@ -27,7 +26,9 @@ def criar(request):
     if request.method == 'POST':
         cliente_form = ClienteForm(request.POST)
         if cliente_form.is_valid():
-            cliente_form.save()
+            cliente = cliente_form.save(commit=False)
+            cliente.usuario = request.user
+            cliente.save()
         return redirect('clientes')
     else:
         cliente_form = ClienteForm()
