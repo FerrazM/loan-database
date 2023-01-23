@@ -1,0 +1,24 @@
+{% extends 'loans/base.html' %}
+{% block conteudo %}
+<h1 style='margin-top:200px; margin-bottom: 80px; text-align: center;'>Balanço Mensal<h1>
+    <div class="container-fluid">
+        <form class='container table table-hover table-bordered table-sm' method="post">
+            {% csrf_token %}
+            <label for="start_date">Início:</label>
+            <input type="date" id="start_date" name="start_date">
+            <label for="end_date">Fim:</label>
+            <input type="date" id="end_date" name="end_date">
+            <input type="submit" value="Enviar">
+        </form>
+    <table class='container table table-hover table-bordered table-sm'> 
+        <tr>   
+            <th>Saída Mês</th> 
+            <th>Entrada Mês</th> 
+        </tr>
+        <tr>
+            <td style="text-align: center;">{{ soma_valor.valor__sum }}</td>
+            <td style="text-align: center;">{{ soma_pagamento.juros_mes__sum }}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

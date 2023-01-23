@@ -3,6 +3,7 @@ from .models import Cliente
 from .forms import ClienteForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+from datetime import datetime, timedelta
 
 
 @login_required
@@ -62,7 +63,21 @@ def excluir(request, id_cliente):
 
 @login_required
 def somaemprestimos(request):
-    soma_valor = Cliente.objects.filter(usuario=request.user).aggregate(Sum('valor'))
-    soma_pagamento = Cliente.objects.filter(usuario=request.user).aggregate(Sum('juros_mes'))
+    soma_valor = Cliente.objects.filter(
+        usuario=request.user).aggregate(Sum('valor'))
+    soma_pagamento = Cliente.objects.filter(
+        usuario=request.user).aggregate(Sum('juros_mes'))
     context = {'soma_valor': soma_valor, 'soma_pagamento': soma_pagamento}
     return render(request, 'loans/balanco.html', context)
+
+
+@login_required
+def balancomensal(request):
+    inicio_mes = request.POST.get('start_date')
+    fim_mes = request.POST.get('end_date')
+    soma_valor = Cliente.objects.filter(usuario=request.user, data__range=[
+                                        inicio_mes, fim_mes]).aggregate(Sum('valor'))
+    soma_pagamento = Cliente.objects.filter(usuario=request.user, vencimento_mensal__range=[
+                                            inicio_mes, fim_mes]).aggregate(Sum('juros_mes'))
+    context = {'soma_valor': soma_valor, 'soma_pagamento': soma_pagamento}
+    return render(request, 'loans/balanco_mensal.html', context)

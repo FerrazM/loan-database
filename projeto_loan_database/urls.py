@@ -26,6 +26,7 @@ urlpatterns = [
     path('logout/', auth_views.LogoutView.as_view(template_name='usuarios/logout.html'), name='logout'),
     path('', views.clientes, name='clientes'),
     path('balanco/', views.somaemprestimos, name='balanco'),
+    path('balanco_mensal/', views.balancomensal, name='balanco_mensal'),
     path('novo_emprestimo/', views.criar, name='novo_emprestimo'),
     path('novo_emprestimo/<int:id_cliente>', views.editar, name='editar'),
     path('excluir_cliente/<int:id_cliente>', views.excluir, name='excluir'),
