@@ -62,7 +62,7 @@ def excluir(request, id_cliente):
 
 @login_required
 def somaemprestimos(request):
-    soma_valor = Cliente.objects.aggregate(Sum('valor'))
-    soma_pagamento = Cliente.objects.aggregate(Sum('juros_mes'))
+    soma_valor = Cliente.objects.filter(usuario=request.user).aggregate(Sum('valor'))
+    soma_pagamento = Cliente.objects.filter(usuario=request.user).aggregate(Sum('juros_mes'))
     context = {'soma_valor': soma_valor, 'soma_pagamento': soma_pagamento}
     return render(request, 'loans/balanco.html', context)
