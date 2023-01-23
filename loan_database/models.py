@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Cliente(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE,null=True,blank=True)
     nome = models.CharField(max_length=50)
     cpf = models.CharField(max_length=14)
     telefone = models.CharField(
