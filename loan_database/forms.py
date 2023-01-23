@@ -19,3 +19,4 @@ class ClienteForm(forms.ModelForm):
         self.fields['vencimento_mensal'].widget.attrs.update(
             {'class': 'mask-vencimento'})
         self.fields['usuario'].widget = forms.HiddenInput()
+        
