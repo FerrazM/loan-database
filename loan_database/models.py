@@ -23,11 +23,3 @@ class Cliente(models.Model):
                                          blank=True, null=True)
     divida_total_paga = models.BooleanField(default=False,
                                             verbose_name='Dívida paga')
-
-    def save(self, *args, **kwargs):
-        if self.data:
-            self.data = datetime.strptime(str(self.data), '%Y-%m-%d')
-        if self.vencimento_mensal:
-            self.vencimento_mensal = datetime.strptime(
-                str(self.vencimento_mensal), '%Y-%m-%d')
-        super().save(*args, **kwargs)
