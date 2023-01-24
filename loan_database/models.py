@@ -26,10 +26,8 @@ class Cliente(models.Model):
 
     def save(self, *args, **kwargs):
         if self.data:
-            self.data = datetime.strptime(self.data, '%d/%m/%Y').date()
+            self.data = datetime.strptime(str(self.data), '%Y-%m-%d')
         if self.vencimento_mensal:
             self.vencimento_mensal = datetime.strptime(
-                self.vencimento_mensal, '%d/%m/%Y').date()
+                str(self.vencimento_mensal), '%Y-%m-%d')
         super().save(*args, **kwargs)
-        
-        
