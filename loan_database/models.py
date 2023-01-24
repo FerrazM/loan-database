@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 
 class Cliente(models.Model):
@@ -22,3 +23,11 @@ class Cliente(models.Model):
                                          blank=True, null=True)
     divida_total_paga = models.BooleanField(default=False,
                                             verbose_name='Dívida paga')
+
+    def save(self, *args, **kwargs):
+        if self.data:
+            self.data = datetime.strptime(self.data, '%d/%m/%Y').date()
+        if self.vencimento_mensal:
+            self.vencimento_mensal = datetime.strptime(
+                self.vencimento_mensal, '%d/%m/%Y').date()
+        super().save(*args, **kwargs)
