@@ -31,3 +31,5 @@ class Cliente(models.Model):
             self.vencimento_mensal = datetime.strptime(
                 self.vencimento_mensal, '%d/%m/%Y').date()
         super().save(*args, **kwargs)
+        
+        
