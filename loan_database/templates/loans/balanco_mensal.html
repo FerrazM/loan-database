@@ -1,24 +1,27 @@
 {% extends 'loans/base.html' %}
 {% block conteudo %}
-<h1 style='margin-top:200px; margin-bottom: 80px; text-align: center;'>Filtro Balanço<h1>
-    <div class="container">
-        
-        <table class='container'>
-        <form>
-            {% csrf_token %}
-            <thp><label style="margin-right:12px;" for="start_date">De:</label> <input type="date" id="start_date" name="start_date"></th>
-        </form>
-                
-        <table class='container'>
-        <form>
-            <td><label for="end_date">Até:</label> <input type="date" id="end_date" name="end_date"></td>
-        </form>
-        <table class='container table table-hover table-bordered table-sm'> 
-            <input style="margin-top:20px; margin-bottom:20px;" type="submit" value="Somar">
-            <tr>   
-                <th>Entrada </th> <td style="text-align: center;">{{ soma_pagamento.juros_mes__sum }}</td>
-                <th>Saída </th> <td style="text-align: center;">{{ soma_valor.valor__sum }}</td>
-            </tr>
-    </table>
-</div>
+<div class="container">
+    <h1 style='margin-top:200px; margin-bottom: 80px; text-align: center;'>Filtro Balanço</h1>
+    <section class="filtro-periodo">
+      <form id="form-periodo">
+        <label style="margin-left:20px;" for="inicio">Início do período:</label>
+        <input type="date" id="inicio" name="inicio">
+        <label for="fim">Fim do período:</label>
+        <input type="date" id="fim" name="fim">
+        <button type="submit" id="submit-periodo">Filtrar</button>
+      </form>
+    </section>
+    <div class="container-fluid">
+      <table class='container table table-hover table-bordered table-sm'> 
+          <tr>   
+              <th>Entrada</th> 
+              <th>Saída</th> 
+          </tr>
+          <tr>
+              <td style="text-align: center;">{{ soma_pagamento_mes.juros_mes__sum }}</td>
+              <td style="text-align: center;">{{ soma_valor_mes.valor__sum }}</td>
+          </tr>
+      </table>
+    </div>
+  </div>
 {% endblock %}

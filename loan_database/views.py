@@ -75,9 +75,9 @@ def somaemprestimos(request):
 def balancomensal(request):
     inicio_mes = request.POST.get('start_date')
     fim_mes = request.POST.get('end_date')
-    soma_valor = Cliente.objects.filter(usuario=request.user, data__range=[
+    soma_valor_mes = Cliente.objects.filter(usuario=request.user, data__range=[
                                         inicio_mes, fim_mes]).aggregate(Sum('valor'))
-    soma_pagamento = Cliente.objects.filter(usuario=request.user, vencimento_mensal__range=[
+    soma_pagamento_mes = Cliente.objects.filter(usuario=request.user, vencimento_mensal__range=[
                                             inicio_mes, fim_mes]).aggregate(Sum('juros_mes'))
-    context = {'soma_valor': soma_valor, 'soma_pagamento': soma_pagamento}
+    context = {'soma_valor_mes': soma_valor_mes, 'soma_pagamento_mes': soma_pagamento_mes}
     return render(request, 'loans/balanco_mensal.html', context)
