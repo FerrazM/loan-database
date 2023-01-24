@@ -10,8 +10,8 @@ var SPMaskBehavior = function (val) {
 $(document).ready(function () {
     $('.mask-cpf').mask('000.000.000-00', { reverse: true });
     $('.mask-telefone').mask(SPMaskBehavior, spOptions);
-    $('.mask-data').mask('00.00.0000');
-    $('.mask-vencimento').mask('00.00.0000');
+    $('.mask-data').mask('00/00/0000');
+    $('.mask-vencimento').mask('00/00/0000');
     $('.mask-valor').mask('##0.00', { reverse: true });
     $('.mask-juros').mask('##0.00%', { reverse: true });
     $('.mask-pagamento').mask('##0.00', { reverse: true });
