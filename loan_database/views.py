@@ -72,8 +72,8 @@ def somaemprestimos(request):
 
 @login_required
 def balancomensal(request):
-    inicio_mes = request.POST.get('start_date')
-    fim_mes = request.POST.get('end_date')
+    inicio_mes = request.POST.get('inicio')
+    fim_mes = request.POST.get('fim')
     soma_valor = Cliente.objects.filter(usuario=request.user, data__range=[
                                         inicio_mes, fim_mes]).aggregate(Sum('valor'))
     soma_pagamento = Cliente.objects.filter(usuario=request.user, vencimento_mensal__range=[
