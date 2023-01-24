@@ -17,9 +17,9 @@ class Cliente(models.Model):
     pagamento_mensal = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor de pagamento mensal',
         help_text='Insira o valor dos juros mensais', name='juros_mes')
-    data = models.DateField(
+    data = models.IntegerField(
         verbose_name='Data do empréstimo', blank=True, null=True)
-    vencimento_mensal = models.DateField(verbose_name='Data de Pagamento',
-                                         blank=True, null=True)
+    vencimento_mensal = models.IntegerField(verbose_name='Data de Pagamento',
+                                            blank=True, null=True)
     divida_total_paga = models.BooleanField(default=False,
                                             verbose_name='Dívida paga')
