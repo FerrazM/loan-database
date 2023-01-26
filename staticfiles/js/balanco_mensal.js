@@ -5,7 +5,7 @@ $(document).ready(function () {
         var fim = $("#fim").val();
         $.ajax({
             type: "POST",
-            url: "/filtrar-periodo",
+            url: "/balanco_mensal",
             data: { inicio: inicio, fim: fim },
             success: function (response) {
                 // Atualizar a tabela com os novos valores

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from datetime import datetime
+
 
 
 class Cliente(models.Model):
@@ -21,5 +21,5 @@ class Cliente(models.Model):
         verbose_name='Data do empréstimo', blank=True, null=True)
     vencimento_mensal = models.DateField(verbose_name='Data de Pagamento',
                                          blank=True, null=True)
-    mensalidade_paga = models.BooleanField(default=False,verbose_name='Mensalidade Paga')
-    divida_total_paga = models.BooleanField(default=False,verbose_name='Dívida Total Paga')
+    mensalidade_paga = models.BooleanField(default=False,verbose_name='Mensalidade Paga',name='checkbox1')
+    divida_total_paga = models.BooleanField(default=False,verbose_name='Dívida Total Paga',name='checkbox2')

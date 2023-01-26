@@ -19,10 +19,10 @@
         <td>{{dado.juros_mes}}</td>
         <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
         <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
-        {% if dado.mensalidade_paga %}
-        <td style='text-align:center'><input  type='checkbox' value="" id='mensalidade_paga' checked></td>
+        {% if dado.checkbox1 %}
+        <td style='text-align:center'><input  type='checkbox' value="checkbox1" id='checkbox1' checked></td>
         {% else %}
-        <td style='text-align:center'><input  type='checkbox'></td>
+        <td style='text-align:center'><input  type='checkbox' value="checkbox1" id='checkbox1'></td>
         {% endif %}
     </tr>
     {% endfor %}
