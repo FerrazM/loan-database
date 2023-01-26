@@ -8,7 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/checkbox.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checkbox.css' %}">
     <title>Loan Database</title>
   </head>
   
@@ -50,9 +50,9 @@
         <script src="{% static 'js/calculojuros.js' %}"></script>
         <script src="{% static 'js/checkbox.js' %}"></script>
         <script>
-          function handleChange(checkbox) {
-            var paymentField = document.getElementById("payment-field");
-            if(checkbox.checked) {
+          function handleChange(checkbox1) {
+            var paymentField = document.getElementById("paymentField");
+            if(checkbox1.checked) {
               paymentField.classList.remove("red-background");
               paymentField.classList.add("green-background");
             } else {
