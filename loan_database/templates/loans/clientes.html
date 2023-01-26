@@ -20,10 +20,10 @@
         <td id='paymentField' class='payment-field'>{{dado.juros_mes}}</td>
         <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
         <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
-        {% if dado.id %}
-        <td class ="payment-field" style='text-align:center'><input  type='checkbox' name="checkbox-{{dado.id}}" id='checkbox-{{dado.id}}' checked onchange="handleChange(this,{{dado.id}})" ></td>
+        {% if dado.checkbox1 %}
+        <td  style='text-align:center'><input  type='checkbox' name="checkbox1" id='checkbox1' checked  disabled ></td>
         {% else %}
-        <td class ="payment-field" style='text-align:center'><input  type='checkbox' name="checkbox-{{dado.id}}" id='checkbox-{{dado.id}}' onchange="handleChange(this,{{dado.id}})"></td>
+        <td  style='text-align:center'><input  type='checkbox' name="checkbox1" id='checkbox1' disabled></td>
         {% endif %}
     </tr>
     {% endfor %}
