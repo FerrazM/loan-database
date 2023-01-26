@@ -21,24 +21,12 @@
         <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
         <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
         {% if dado.checkbox1 %}
-        <td style='text-align:center'><input  type='checkbox' value="checkbox1-{{dado.id_cliente}}" id='checkbox1-{{dado.id_cliente}}' checked onchange="handleChange(this,{{dado.id_cliente}})" ></td>
+        <td class ="payment-field" style='text-align:center'><input  type='checkbox' name="checkbox1-{{dado.id}}" id='checkbox1-{{dado.id}}' checked onchange="handleChange(this,{{dado.id}})" ></td>
         {% else %}
-        <td style='text-align:center'><input  type='checkbox' value="checkbox1-{{dado.id_cliente}}" id='checkbox1-{{dado.id_cliente}}' onchange="handleChange(this,{{dado.id_cliente}})"></td>
+        <td class ="payment-field" style='text-align:center'><input  type='checkbox' name="checkbox1-{{dado.id}}" id='checkbox1-{{dado.id}}' onchange="handleChange(this,{{dado.id}})"></td>
         {% endif %}
     </tr>
     {% endfor %}
 </table>
 </div>
-<script>
-    function handleChange(checkbox1,id_cliente){
-        var paymentField = document.querySelector('payment-field-${id_cliente}'); 
-        if(checkbox1.checked) {
-            paymentField.classList.remove("red-background");
-            paymentField.classList.add("green-background");
-        } else {
-            paymentField.classList.remove("green-background");
-            paymentField.classList.add("red-background");
-        }
-    }
-  </script>
 {% endblock %}
