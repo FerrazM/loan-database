@@ -1,5 +1,5 @@
 function handleChange(checkbox) {
-    var paymentField = document.querySelector("#paymentField-" + checkbox.name.split("-")[1])
+    var paymentField = document.querySelector("paymentField")
     if (checkbox.checked) {
         paymentField.classList.remove("red-background");
         paymentField.classList.add("green-background");
