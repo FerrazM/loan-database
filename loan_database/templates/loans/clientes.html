@@ -11,7 +11,7 @@
         <th>Pagameto Mensal</th>
         <th>Editar</th>
         <th>Excluir</th>
-        <th>Pago</th>
+        <th>Mensalidade</th>
     </tr>
     {% for dado in dados %}
     <tr style="text-align: center;">
@@ -19,13 +19,13 @@
         <td>{{dado.juros_mes}}</td>
         <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
         <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
-        {% if dado.divida_total_paga %}
-        <td style='text-align:center'><input  type='checkbox' value="" id='divida_total_paga' checked></td>
+        {% if dado.mensalidade_paga %}
+        <td style='text-align:center'><input  type='checkbox' value="" id='mensalidade_paga' checked></td>
         {% else %}
         <td style='text-align:center'><input  type='checkbox'></td>
         {% endif %}
     </tr>
     {% endfor %}
 </table>
-</div>
+</div>  
 {% endblock %}
