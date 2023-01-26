@@ -1,4 +1,5 @@
 {% extends 'loans/base.html' %}
+{% load static %}
 {% block conteudo %}
 <h1 style ='text-align: center; margin-top:200px; margin-bottom:80px;'>Lista de Clientes</h1>
 <div style= "white-space: nowrap;" class='container'>
@@ -16,16 +17,29 @@
     {% for dado in dados %}
     <tr style="text-align: center;">
         <td><a href="{% url 'detalhe' dado.id %}">{{dado.nome}}</a></td> 
-        <td>{{dado.juros_mes}}</td>
+        <td id='paymentField'>{{dado.juros_mes}}</td>
         <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
         <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
         {% if dado.checkbox1 %}
-        <td style='text-align:center'><input  type='checkbox' value="checkbox1" id='checkbox1' checked disabled></td>
+        <td style='text-align:center'><input  type='checkbox' value="checkbox1" id='checkbox1' checked onchange="handleChange(this)" disabled></td>
         {% else %}
-        <td style='text-align:center'><input  type='checkbox' value="checkbox1" id='checkbox1' disabled></td>
+        <td style='text-align:center'><input  type='checkbox' value="checkbox1" id='checkbox1' onchange="handleChange(this)" disabled></td>
         {% endif %}
     </tr>
     {% endfor %}
 </table>
 </div>  
+<script>
+    function handleChange(checkbox) {
+      var paymentField = document.getElementById("payment-field");
+      if(checkbox.checked) {
+        paymentField.classList.remove("red-background");
+        paymentField.classList.add("green-background");
+      } else {
+        paymentField.classList.remove("green-background");
+        paymentField.classList.add("red-background");
+      }
+    }
+  </script>
+  
 {% endblock %}

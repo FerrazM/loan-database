@@ -1,6 +1,7 @@
-.checkbox-cell input[type="checkbox"]:not(:checked) {
-    background-color: #ff0000; /* fundo vermelho */
+.green-background {
+    background-color: green;
 }
-.checkbox-cell input[type="checkbox"]:checked {
-    background-color: #00ff00; /* fundo verde */
+
+.red-background {
+    background-color: red;
 }
