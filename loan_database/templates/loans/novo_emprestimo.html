@@ -7,7 +7,17 @@
     <h1 style='margin-top: 140px; margin-bottom: 30px;'>Formulário Novo Cliente</h1>
     <form action="#" method="POST">
         {% csrf_token %}
-        {{formulario | crispy}}
+        {{formulario.usuario|as_crispy_field}}
+        {{ formulario.nome|as_crispy_field }}
+        {{ formulario.cpf|as_crispy_field }}
+        {{ formulario.telefone|as_crispy_field }}
+        {{ formulario.valor|as_crispy_field }}
+        {{ formulario.juros|as_crispy_field }}
+        {{ formulario.juros_mes|as_crispy_field }}
+        {{ formulario.data|as_crispy_field }}
+        {{ formulario.vencimento_mensal|as_crispy_field }}
+        {{ formulario.checkbox1|as_crispy_field }}
+        {{ formulario.checkbox2|as_crispy_field }}
         <button style="margin-bottom: 50px;"type="submit" class="btn btn-success">Salvar</button>
     </form>
 </div>
@@ -18,6 +28,7 @@
 <script src="{% static 'js/jquery-3.6.3.min.js' %}"></script>
 <script src="{% static 'js/jquery.mask.min.js' %}"></script>
 <script src="{% static 'js/mascara.js' %}"></script>
+<script src="{% static 'js/calculojuros.js' %}"></script>
 {% endblock %}
 
 
