@@ -48,19 +48,7 @@
         <script src="{% static 'js/mascara.js' %}"></script>
         <script src="{% static 'js/balanco_mensal.js' %}"></script>
         <script src="{% static 'js/calculojuros.js' %}"></script>
-        <script src="{% static 'js/checkbox.js' %}"></script>
-        <script>
-          function handleChange(checkbox1) {
-            var paymentField = document.getElementById("paymentField");
-            if(checkbox1.checked) {
-              paymentField.classList.remove("red-background");
-              paymentField.classList.add("green-background");
-            } else {
-              paymentField.classList.remove("green-background");
-              paymentField.classList.add("red-background");
-            }
-          }
-        </script>
+        
         
       {% block scripts %}
 
