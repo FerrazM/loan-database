@@ -1,7 +1,0 @@
-.checkbox-color {
-    background-color: green;
-}
-
-.checkbox-color input:not(:checked) {
-    background-color: red;
-}
