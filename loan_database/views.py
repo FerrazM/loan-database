@@ -3,6 +3,9 @@ from .models import Cliente
 from .forms import ClienteForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
+from django.http import JsonResponse
+from rest_framework import viewsets
+from rest_framework.response import Response
 
 
 @login_required
@@ -72,11 +75,16 @@ def somaemprestimos(request):
 
 @login_required
 def balancomensal(request):
-    inicio_mes = request.POST.get('inicio')
-    fim_mes = request.POST.get('fim')
-    soma_valor = Cliente.objects.filter(usuario=request.user, data__range=[
-                                        inicio_mes, fim_mes]).aggregate(Sum('valor'))
-    soma_pagamento = Cliente.objects.filter(usuario=request.user, vencimento_mensal__range=[
-                                            inicio_mes, fim_mes]).aggregate(Sum('juros_mes'))
-    context = {'soma_valor': soma_valor, 'soma_pagamento': soma_pagamento}
-    return render(request, 'loans/balanco_mensal.html', context)
+    if request.method == 'POST':
+        inicio_mes = request.POST.get('inicio')
+        fim_mes = request.POST.get('fim')
+        soma_valor = Cliente.objects.filter(usuario=request.user, data__range=[
+                                            inicio_mes, fim_mes]).aggregate(Sum('valor'))
+        soma_pagamento = Cliente.objects.filter(usuario=request.user, vencimento_mensal__range=[
+                                                inicio_mes, fim_mes]).aggregate(Sum('juros_mes'))
+        return render(request, 'loans/balanco_mensal.html/', {
+            'soma_valor': soma_valor['valor__sum'],
+            'soma_pagamento': soma_pagamento['juros_mes__sum']
+        })
+    else:
+        return render(request, 'loans/balanco_mensal.html/')
