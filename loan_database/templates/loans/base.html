@@ -8,6 +8,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.13.1/datatables.min.css"/>
+ 
     <title>Loan Database</title>
   </head>
   
@@ -47,7 +49,8 @@
         <script src="{% static 'js/mascara.js' %}"></script>
         <script src="{% static 'js/balanco_mensal.js' %}"></script>
         <script src="{% static 'js/calculojuros.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/barra_pesquisa_clientes.js' %}"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.13.1/datatables.min.js"></script>
+
         
         
       {% block scripts %}
