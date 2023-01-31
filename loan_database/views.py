@@ -84,4 +84,4 @@ def balancomensal(request):
             'soma_pagamento': soma_pagamento['juros_mes__sum']
         })
     else:
-        return render(request, 'loans/balanco_mensal.html/')
+        return render(request, 'loans/balanco_mensal.html')
