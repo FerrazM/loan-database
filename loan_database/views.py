@@ -3,9 +3,6 @@ from .models import Cliente
 from .forms import ClienteForm
 from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
-from django.http import JsonResponse
-from rest_framework import viewsets
-from rest_framework.response import Response
 
 
 @login_required
