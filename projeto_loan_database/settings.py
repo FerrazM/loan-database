@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'loan_database',
     'crispy_forms',
     'usuarios',
-    'static'
+    'static',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
