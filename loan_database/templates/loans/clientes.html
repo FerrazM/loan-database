@@ -6,6 +6,12 @@
 <button style='margin-bottom:10px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'novo_emprestimo' %}">Novo Cliente</a></button>
 <button style='margin-bottom:10px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'balanco' %}">Balanço Total</a></button>
 <button style='margin-bottom:10px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'balanco_mensal' %}">Balanço Mensal</a></button>
+<form>
+    <div class="form-group">
+      <input type="text" class="form-control" id="searchInput" placeholder="Pesquisar por nome">
+    </div>
+  </form>
+  
 <table class= 'container-fluid table table-striped table-bordered'>
     <tr style="text-align: center;">
         <th>Cliente</th>
@@ -29,4 +35,8 @@
     {% endfor %}
 </table>
 </div>
+{% endblock %}
+
+{% block scripts %}
+<script type="text/javascript" src="{% static 'js/barra_pesquisa_clientes.js' %}"></script>
 {% endblock %}
