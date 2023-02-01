@@ -19,7 +19,5 @@ class ClienteForm(forms.ModelForm):
         self.fields['vencimento_mensal'].widget.attrs.update(
             {'class': 'mask-vencimento'})
         self.fields['usuario'].widget = forms.HiddenInput()
-        if self.instance and self.instance.checkbox1:
-            self.fields['juros_mes'].widget.attrs['class'] = 'green-field'
-        else:
-            self.fields['juros_mes'].widget.attrs['class'] = 'red-field'
+        
+        
