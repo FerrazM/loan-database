@@ -15,6 +15,7 @@ class Cliente(models.Model):
         max_digits=22, decimal_places=2, verbose_name='Valor R$', name='valor')
     juros = models.CharField(max_length=22, verbose_name='juros %',
                              help_text='Insira a porcentagem de juros')
+    parcelas = models.IntegerField(default=1)
     pagamento_mensal = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor de pagamento mensal',
         help_text='Insira o valor dos juros mensais', name='juros_mes')
@@ -28,6 +29,14 @@ class Cliente(models.Model):
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
     def save(self, *args, **kwargs):
+        if self.data:
+            next_month = self.data + datetime.timedelta(days=30)
+            self.vencimento_mensal = next_month
+        super().save(*args, **kwargs)
+
+    def save(self, *args, **kwargs):
+        self.pagamento_mensal = (
+            self.valor + (self.valor * (int(self.juros) / 100))) / self.parcelas
         if self.data:
             next_month = self.data + datetime.timedelta(days=30)
             self.vencimento_mensal = next_month
