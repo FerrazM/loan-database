@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 import datetime
-from django.db.models.signals import pre_save
-from django.dispatch import receiver
 
 
 class Cliente(models.Model):
@@ -29,12 +27,8 @@ class Cliente(models.Model):
     divida_total_paga = models.BooleanField(
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
-
-@receiver(pre_save, sender=Cliente)
-def set_vencimento_mensal(sender, instance, **kwargs):
-    if instance.data:
-        next_month = instance.data + datetime.timedelta(days=30)
-        instance.vencimento_mensal = next_month
-
-
-pre_save.connect(set_vencimento_mensal, sender=Cliente)
+    def save(self, *args, **kwargs):
+        if self.data:
+            next_month = self.data + datetime.timedelta(days=30)
+            self.vencimento_mensal = next_month
+        super().save(*args, **kwargs)
