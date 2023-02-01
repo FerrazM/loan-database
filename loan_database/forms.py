@@ -22,7 +22,7 @@ class ClienteForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if self.instance and self.instance.mensalidade_paga:
+        if self.instance and self.instance.checkbox1:
             self.fields['juros_mes'].widget.attrs['class'] = 'green-field'
         else:
             self.fields['juros_mes'].widget.attrs['class'] = 'red-field'
