@@ -37,7 +37,7 @@ class Cliente(models.Model):
     def save(self, *args, **kwargs):
         juros = float(self.juros.strip().replace("%", "")) / 100
         self.pagamento_mensal = (
-            self.valor + (self.valor * juros)) / self.parcelas
+            float(self.valor) + (float(self.valor) * juros)) / self.parcelas
         if self.data:
             next_month = self.data + datetime.timedelta(days=30)
             self.vencimento_mensal = next_month
