@@ -32,12 +32,6 @@ class Cliente(models.Model):
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
     def save(self, *args, **kwargs):
-        if self.data:
-            next_month = self.data + datetime.timedelta(days=30)
-            self.vencimento_mensal = next_month
-        super().save(*args, **kwargs)
-
-    def save(self, *args, **kwargs):
         juros = float(self.juros.strip().replace("%", "")) / 100
         self.pagamento_mensal = (
             float(self.valor) + (float(self.valor) * juros)) / self.parcelas
