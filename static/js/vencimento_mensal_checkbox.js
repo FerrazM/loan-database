@@ -9,7 +9,7 @@ $(document).ready(function () {
     if (mm < 10) {
         mm = '0' + mm;
     }
-    today = dd + '/' + mm + '/' + yyyy;
+    today = yyyy + '/' + mm + '/' + dd;
     $('input[name="vencimento_mensal"]').change(function () {
         if ($(this).val() === today) {
             $('input[name="checkbox1"]').prop('checked', false);
