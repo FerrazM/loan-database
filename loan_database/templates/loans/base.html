@@ -19,16 +19,16 @@
         <ul style="float:right; list-style: none;">
           {% if user.is_authenticated %}
           <li style="float:left">
-            <strong style="margin-top:50px;" class="text-info nav-link">Bem-vindo: {{user.get_username}}</strong>
+            <strong style="float:left" class="text-info nav-link">Bem-vindo: {{user.get_username}}</strong>
           </li>
-          <li  style="margin-top:50px; float:left">
+          <li  style="float:left">
               <a class= "nav-link" href="{% url 'logout' %}">Sair</a>
           </li>
           {% else %}
-          <li style="margin-top:50px; float:left">
+          <li style="float:left">
               <a class="nav-link" href="{% url 'login' %}">Login</a>
           </li>
-          <li style="margin-top:50px; float:left">      
+          <li style="float:left">      
               <a class=" nav-link" href="{% url 'novo_usuario' %}">Fazer Cadastro</a>
           </li>
           {% endif %}
