@@ -4,7 +4,6 @@ from django.utils import timezone
 import datetime
 
 
-
 class Cliente(models.Model):
     usuario = models.ForeignKey(
         User, on_delete=models.CASCADE, null=True, blank=True)
@@ -26,15 +25,13 @@ class Cliente(models.Model):
     data_emprestimo = models.DateField(
         blank=True, null=True, verbose_name='Data do empréstimo')
     data = models.DateField(
-        verbose_name='Data do primeiro pagamento', blank=True, null=True)
+        verbose_name='Data de pagamento', blank=True, null=True)
     vencimento_mensal = models.DateField(verbose_name='Vencimento',
                                          blank=True, null=True)
     mensalidade_paga = models.BooleanField(
         default=False, verbose_name='Mensalidade Paga', name='checkbox1')
     divida_total_paga = models.BooleanField(
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
-
-    
 
     def pagar_parcela(self):
         if not self.mensalidade_paga:
