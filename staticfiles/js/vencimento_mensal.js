@@ -13,7 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const formattedDate = `${("0" + data.getDate()).slice(-2)}/${("0" + (data.getMonth() + 1)).slice(-2)}/${data.getFullYear()}`;
 
-        // Atualize o valor do campo "vencimento_mensal" com a data atualizada
-        vencimentoMensalField.value = formattedDate;
+        // Verifique se o campo "vencimento_mensal" está vazio
+        if (!vencimentoMensalField.value) {
+            // Atualize o valor do campo "vencimento_mensal" com a data atualizada
+            vencimentoMensalField.value = formattedDate;
+        }
     });
 });
