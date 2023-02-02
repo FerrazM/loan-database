@@ -15,8 +15,11 @@ def clientes(request):
 
 @login_required
 def detalhe(request, id_cliente):
+    cliente = Cliente.objects.get(pk=id_cliente)
+    valor_retornado = cliente.juros_mes * cliente.parcelas_pagas
     dados = {
-        'dados': Cliente.objects.get(pk=id_cliente)
+        'dados': cliente,
+        'valor_retornado': valor_retornado
     }
     return render(request, 'loans/detalhe.html', dados)
 
