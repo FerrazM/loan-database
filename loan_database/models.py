@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from datetime import datetime, timedelta
+from dateutil.relativedelta import relativedelta
 
 
 class Cliente(models.Model):
@@ -35,7 +36,7 @@ class Cliente(models.Model):
 
     def save(self, *args, **kwargs):
         if self.vencimento_mensal:
-            self.data = self.vencimento_mensal + timedelta(days=30)
+            self.data = self.vencimento_mensal + relativedelta(months=1)
         super().save(*args, **kwargs)
 
     def pagar_parcela(self):
