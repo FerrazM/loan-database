@@ -4,12 +4,12 @@ $(document).ready(function () {
     var mm = today.getMonth() + 1;
     var yyyy = today.getFullYear();
     if (dd < 10) {
-        dd = '0' + dd
+        dd = '0' + dd;
     }
     if (mm < 10) {
-        mm = '0' + mm
+        mm = '0' + mm;
     }
-    today = yyyy + '-' + mm + '-' + dd;
+    today = dd + '/' + mm + '/' + yyyy;
     $('input[name="vencimento_mensal"]').change(function () {
         if ($(this).val() === today) {
             $('input[name="checkbox1"]').prop('checked', false);
@@ -24,7 +24,7 @@ $(document).ready(function () {
             if (nextMonthMM < 10) {
                 nextMonthMM = '0' + nextMonthMM;
             }
-            var nextMonthDate = nextMonthYYYY + '-' + nextMonthMM + '-' + nextMonthDD;
+            var nextMonthDate = nextMonthDD + '/' + nextMonthMM + '/' + nextMonthYYYY;
             $('input[name="vencimento_mensal"]').val(nextMonthDate);
         }
     });
