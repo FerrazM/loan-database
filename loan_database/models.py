@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-import datetime
+from datetime import datetime, timedelta
 
 
 class Cliente(models.Model):
@@ -32,6 +32,11 @@ class Cliente(models.Model):
         default=False, verbose_name='Mensalidade Paga', name='checkbox1')
     divida_total_paga = models.BooleanField(
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
+
+    def save(self, *args, **kwargs):
+        if self.vencimento_mensal:
+            self.data = self.vencimento_mensal + timedelta(days=30)
+        super().save(*args, **kwargs)
 
     def pagar_parcela(self):
         if not self.mensalidade_paga:
