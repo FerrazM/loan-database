@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
         // Adicione um mês à data
         data.setMonth(data.getMonth() + 1);
 
+        const formattedDate = `${("0" + data.getDate()).slice(-2)}/${("0" + (data.getMonth() + 1)).slice(-2)}/${data.getFullYear()}`;
+
         // Atualize o valor do campo "vencimento_mensal" com a data atualizada
-        vencimentoMensalField.value = data.toISOString().substr(0, 10);
+        vencimentoMensalField.value = formattedDate;
     });
 });
