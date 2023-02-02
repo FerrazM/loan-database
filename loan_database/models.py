@@ -11,6 +11,8 @@ class Cliente(models.Model):
     cpf = models.CharField(max_length=14, null=True, blank=True)
     telefone = models.CharField(
         max_length=16, help_text='Insira o telefone com DDD', null=True, blank=True)
+    endereco = models.TextField(
+        max_length=300, null=True, blank=True, verbose_name='Endereço')
     valor = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor R$', name='valor')
     juros = models.CharField(max_length=22, verbose_name='juros %',
