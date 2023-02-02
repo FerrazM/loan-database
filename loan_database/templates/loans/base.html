@@ -14,7 +14,7 @@
   </head>
   
   <body>
-      <nav class="navbar container-fluid fixed-top">
+      <nav class="navbar container-fluid sticky-top">
         <a style="margin-top:50px; float:left;"class="navbar navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
         <ul style="float:right; list-style: none;">
           {% if user.is_authenticated %}
