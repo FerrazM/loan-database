@@ -15,7 +15,7 @@
   
   <body>
       <nav class="navbar-brand container-fluid ">
-        <a style="margin-top:50px; float:left;"class="navbar navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
+        <a style="float:left;"class="navbar navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
         <ul style="float:right; list-style: none;">
           {% if user.is_authenticated %}
           <li style="float:left">
