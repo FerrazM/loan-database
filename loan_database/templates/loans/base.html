@@ -4,7 +4,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, margin-left:50px; initial-scale=0.70, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, margin-left:50px; initial-scale=0.75, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
@@ -14,7 +14,7 @@
   </head>
   
   <body>
-      <nav class="navbar-fluid container-fluid fixed-top ">
+      <nav class="navbar-fluid container-fluid">
         <a style="margin-top:50px; float:left;"class="navbar navbar-brand" href="{% url 'clientes' %}">Página Inicial</a>
         <ul style="float:right; list-style: none;">
           {% if user.is_authenticated %}
