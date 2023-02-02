@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 import datetime
+from dateutil.relativedelta import relativedelta
 
 
 class Cliente(models.Model):
@@ -22,8 +23,9 @@ class Cliente(models.Model):
     pagamento_mensal = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor de pagamento mensal',
         help_text='Insira o valor dos juros mensais', name='juros_mes')
+    data_emprestimo = models.DateField(blank=True, null=True, verbose_name='Data do empréstimo')
     data = models.DateField(
-        verbose_name='Data do empréstimo', blank=True, null=True)
+        verbose_name='Data do primeiro pagamento', blank=True, null=True)
     vencimento_mensal = models.DateField(verbose_name='Data de Pagamento',
                                          blank=True, null=True)
     mensalidade_paga = models.BooleanField(
@@ -36,7 +38,7 @@ class Cliente(models.Model):
         self.pagamento_mensal = (
             float(self.valor) + (float(self.valor) * juros)) / self.parcelas
         if self.data:
-            next_month = self.data + datetime.timedelta(days=30)
+            next_month = self.data + relativedelta(months=+1)
             self.vencimento_mensal = next_month
         super().save(*args, **kwargs)
 
