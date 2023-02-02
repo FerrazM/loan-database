@@ -36,7 +36,7 @@ class Cliente(models.Model):
 
     def save(self, *args, **kwargs):
         if self.vencimento_mensal:
-            self.data = self.vencimento_mensal + relativedelta(months=1)
+            self.data = self.data + relativedelta(months=1)
         super().save(*args, **kwargs)
 
     def pagar_parcela(self):
