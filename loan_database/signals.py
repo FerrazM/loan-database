@@ -8,4 +8,4 @@ import datetime
 def check_uncheck_checkbox1(sender, instance, **kwargs):
     today = datetime.date.today()
     if instance.vencimento_mensal < today:
-        instance.mensalidade_paga = False
+        instance.checkbox1 = False
