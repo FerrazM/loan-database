@@ -17,7 +17,7 @@ class Cliente(models.Model):
         max_digits=22, decimal_places=2, verbose_name='Valor R$', name='valor')
     juros = models.CharField(max_length=22, verbose_name='juros %',
                              help_text='Insira a porcentagem de juros')
-    parcelas = models.IntegerField(default=0, blank=True, null=True)
+    parcelas = models.IntegerField(default=1, blank=True, null=True)
     parcelas_pagas = models.IntegerField(default=0, blank=True, null=True)
     pagamento_mensal = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor de pagamento mensal',
