@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 import datetime
-from dateutil.relativedelta import relativedelta
+
 
 
 class Cliente(models.Model):
@@ -34,14 +34,7 @@ class Cliente(models.Model):
     divida_total_paga = models.BooleanField(
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
-    def save(self, *args, **kwargs):
-        juros = float(self.juros.strip().replace("%", "")) / 100
-        self.pagamento_mensal = (
-            float(self.valor) + (float(self.valor) * juros)) / self.parcelas
-        if self.data:
-            next_month = self.data + relativedelta(months=+1)
-            self.vencimento_mensal = next_month
-        super().save(*args, **kwargs)
+    
 
     def pagar_parcela(self):
         if not self.mensalidade_paga:
