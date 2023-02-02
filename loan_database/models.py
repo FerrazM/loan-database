@@ -16,6 +16,7 @@ class Cliente(models.Model):
     juros = models.CharField(max_length=22, verbose_name='juros %',
                              help_text='Insira a porcentagem de juros')
     parcelas = models.IntegerField(default=0, blank=True, null=True)
+    parcelas_pagas = models.IntegerField(default=0)
     pagamento_mensal = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor de pagamento mensal',
         help_text='Insira o valor dos juros mensais', name='juros_mes')
@@ -42,3 +43,16 @@ class Cliente(models.Model):
             next_month = self.data + datetime.timedelta(days=30)
             self.vencimento_mensal = next_month
         super().save(*args, **kwargs)
+
+    def pagar_parcela(self):
+        if not self.mensalidade_paga:
+            self.parcelas_pagas += 1
+            self.mensalidade_paga = True
+            self.save()
+
+    @property
+    def parcelas_restantes(self):
+        return self.parcelas - self.parcelas_pagas
+
+    def parcelas_pagas_string(self):
+        return f"{self.parcelas_pagas}/{self.parcelas} parcelas pagas"
