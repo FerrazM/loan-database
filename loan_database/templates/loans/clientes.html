@@ -1,39 +1,39 @@
 {% extends 'loans/base.html' %}
 {% load static %}
 {% block conteudo %}
-<h1 style ='text-align: center; margin-top:200px; margin-bottom:80px;'>Lista de Clientes</h1>
+<h1 class='container' style ='text-align: center; margin-bottom:50px;'>Lista de Clientes</h1>
 <div style= "white-space: nowrap;" class='container'>
-<button style='margin-left:60px; margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'novo_emprestimo' %}">Novo Cliente</a></button>
+<button style='margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'novo_emprestimo' %}">Novo Cliente</a></button>
 <button style='margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'balanco' %}">Balanço Total</a></button>
 <button style='margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'balanco_mensal' %}">Balanço Período</a></button>
   
-<table class= 'container-fluid table'>
-<table style='margin-left:60px;' class= 'container-fluid table table-striped table-bordered' id="tabela-clientes">
-    <thead>
-        <tr style="text-align: center;">
-            <th>Cliente</th>
-            <th>Pagameto Mensal</th>
-            <th>Editar</th>
-            <th>Excluir</th>
-            <th>Mensalidade</th>
-        </tr>
-    </thead>
+<table class= 'container table'>
+    <table class= 'container table table-striped table-bordered' id="tabela-clientes">
+        <thead>
+            <tr style="text-align: center;">
+                <th>Cliente</th>
+                <th>Pagameto Mensal</th>
+                <th>Editar</th>
+                <th>Excluir</th>
+                <th>Mensalidade</th>
+            </tr>
+        </thead>
 
-<tbody>
-    {% for dado in dados %}
-    <tr style="text-align: center;">
-        <td><a href="{% url 'detalhe' dado.id %}">{{dado.nome}}</a></td> 
-        <td>{{dado.juros_mes}}</td>
-        <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
-        <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
-        {% if dado.checkbox1 %}
-        <td style='text-align:center'><input  type='checkbox' id='checkbox1' checked disabled></td>
-        {% else %}
-        <td style='text-align:center'><input  type='checkbox' id='checkbox1' disabled></td>
-        {% endif %}
-    </tr>
-    {% endfor %}
-<tbody>
+    <tbody>
+        {% for dado in dados %}
+        <tr style="text-align: center;">
+            <td><a href="{% url 'detalhe' dado.id %}">{{dado.nome}}</a></td> 
+            <td>{{dado.juros_mes}}</td>
+            <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
+            <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
+            {% if dado.checkbox1 %}
+            <td style='text-align:center'><input  type='checkbox' id='checkbox1' checked disabled></td>
+            {% else %}
+            <td style='text-align:center'><input  type='checkbox' id='checkbox1' disabled></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    <tbody>
 </table>
 </div>
 {% endblock %}
