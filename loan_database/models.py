@@ -26,8 +26,8 @@ class Cliente(models.Model):
     data_emprestimo = models.DateField(
         blank=True, null=True, verbose_name='Data do empréstimo')
     data = models.DateField(
-        verbose_name='Data de pagamento', blank=True, null=True)
-    vencimento_mensal = models.DateField(verbose_name='Vencimento',
+        verbose_name='Pagou em:', blank=True, null=True)
+    vencimento_mensal = models.DateField(verbose_name='Vence:',
                                          blank=True, null=True)
     mensalidade_paga = models.BooleanField(
         default=False, verbose_name='Mensalidade Paga', name='checkbox1')
@@ -35,7 +35,7 @@ class Cliente(models.Model):
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
     def save(self, *args, **kwargs):
-        if self.vencimento_mensal:
+        if self.data:
             self.data = self.data + relativedelta(months=1)
         super().save(*args, **kwargs)
 
