@@ -35,9 +35,9 @@ class Cliente(models.Model):
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
     def save(self, *args, **kwargs):
-        if self.checkbox1:
-            self.data = self.data + \
-                relativedelta(months=1) if self.data else None
+        if self.data:
+            self.data = self.vencimento_mensal + \
+                relativedelta(months=-1) if self.data else None
         super().save(*args, **kwargs)
 
     def pagar_parcela(self):
