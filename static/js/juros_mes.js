@@ -11,6 +11,6 @@ function updatePayment() {
     if (valor && juros) {
         let jurosDecimal = parseFloat(juros.replace("%", "")) / 100;
         let juros_mes = valor * jurosDecimal;
-        document.getElementById("id_juros_mes").value = juros_mes.toFixed(2).replace(".", ",") + "%";
+        document.getElementById("id_juros_mes").value = juros_mes.toFixed(2);
     }
 }
