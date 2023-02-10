@@ -14,7 +14,7 @@ $(document).ready(function () {
     $('.mask-data').mask('00/00/0000');
     $('.mask-vencimento').mask('00/00/0000');
     $('.mask-valor').mask('##0.00', { reverse: true });
-    $('.mask-juros').mask('##0.00%', { reverse: true });
+    $('.mask-juros').mask('##0.0%', { reverse: true });
     $('.mask-pagamento').mask('##0.00', { reverse: true });
 });
 
