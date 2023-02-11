@@ -13,7 +13,7 @@ function updatePayment() {
     let juros = document.getElementById("id_juros").value;
 
     if (valor && juros) {
-        let jurosDecimal = juros.replace("%", "0");
+        let jurosDecimal = juros.replace("%", "#");
         jurosDecimal = jurosDecimal.replace(",", ".");
         jurosDecimal = math.eval(jurosDecimal / 100);
         let juros_mes = math.eval(valor * jurosDecimal);
