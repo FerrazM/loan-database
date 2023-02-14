@@ -29,6 +29,7 @@ class Cliente(models.Model):
         verbose_name='Pagou em:', blank=True, null=True)
     vencimento_mensal = models.DateField(verbose_name='Vence:',
                                          blank=True, null=True)
+    observacao = models.TextField(max_length=300, null=True, blank=True, verbose_name='Observação')
     mensalidade_paga = models.BooleanField(
         default=False, verbose_name='Mensalidade Paga', name='checkbox1')
     divida_total_paga = models.BooleanField(
