@@ -20,6 +20,7 @@ class Cliente(models.Model):
                              help_text='Insira a porcentagem de juros')
     parcelas = models.IntegerField(default=1, blank=True, null=True)
     parcelas_pagas = models.IntegerField(default=0, blank=True, null=True)
+    parcelas_atrasadas = models.IntegerField(default=0, null=True, blank=True, verbose_name='Parcelas em Atraso')
     pagamento_mensal = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor de pagamento mensal',
         help_text='Insira o valor dos juros mensais', name='juros_mes')
@@ -29,7 +30,8 @@ class Cliente(models.Model):
         verbose_name='Pagou em:', blank=True, null=True)
     vencimento_mensal = models.DateField(verbose_name='Vence:',
                                          blank=True, null=True)
-    observacao = models.TextField(max_length=300, null=True, blank=True, verbose_name='Observação')
+    observacao = models.TextField(
+        max_length=300, null=True, blank=True, verbose_name='Observação')
     mensalidade_paga = models.BooleanField(
         default=False, verbose_name='Mensalidade Paga', name='checkbox1')
     divida_total_paga = models.BooleanField(
