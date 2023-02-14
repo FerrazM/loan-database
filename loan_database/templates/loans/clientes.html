@@ -32,7 +32,10 @@
             {% else %}
             <td style='text-align:center; background-color: red'><input  type='checkbox' id='checkbox1' disabled></td>
             {% endif %}
-            <td>{{dado.parcelas_atrasadas}}</td>
+            <td class="{% if dado.parcelas_atrasadas == 0 %}bg-success{% else %}bg-danger{% endif %}">
+                {{ dado.parcelas_atrasadas }}
+              </td>
+                  
         </tr>
         {% endfor %}
     <tbody>
