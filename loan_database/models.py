@@ -20,14 +20,13 @@ class Cliente(models.Model):
                              help_text='Insira a porcentagem de juros')
     parcelas = models.IntegerField(default=1, blank=True, null=True)
     parcelas_pagas = models.IntegerField(default=0, blank=True, null=True)
-    parcelas_atrasadas = models.IntegerField(default=0, null=True, blank=True, verbose_name='Parcelas em Atraso')
+    parcelas_atrasadas = models.IntegerField(
+        default=0, null=True, blank=True, verbose_name='Parcelas em Atraso')
     pagamento_mensal = models.DecimalField(
         max_digits=22, decimal_places=2, verbose_name='Valor de pagamento mensal',
         help_text='Insira o valor dos juros mensais', name='juros_mes')
     data_emprestimo = models.DateField(
         blank=True, null=True, verbose_name='Data do empréstimo')
-    data = models.DateField(
-        verbose_name='Pagou em:', blank=True, null=True)
     vencimento_mensal = models.DateField(verbose_name='Vence:',
                                          blank=True, null=True)
     observacao = models.TextField(
@@ -37,11 +36,6 @@ class Cliente(models.Model):
     divida_total_paga = models.BooleanField(
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
-    def save(self, *args, **kwargs):
-        if self.data:
-            self.data = self.vencimento_mensal + \
-                relativedelta(months=-1) if self.data else None
-        super().save(*args, **kwargs)
 
     def pagar_parcela(self):
         if not self.checkbox1:
