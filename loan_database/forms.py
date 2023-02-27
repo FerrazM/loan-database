@@ -15,10 +15,8 @@ class ClienteForm(forms.ModelForm):
         self.fields['juros'].widget.attrs.update({'class': 'mask-juros'})
         self.fields['juros_mes'].widget.attrs.update(
             {'class': 'mask-pagamento'})
-        self.fields['data_emprestimo'].widget.attrs.update({'class': 'mask-data-emprestimo'})
-        self.fields['data'].widget.attrs.update({'class': 'mask-data'})
+        self.fields['data_emprestimo'].widget.attrs.update(
+            {'class': 'mask-data-emprestimo'})
         self.fields['vencimento_mensal'].widget.attrs.update(
             {'class': 'mask-vencimento'})
         self.fields['usuario'].widget = forms.HiddenInput()
-        
-        
