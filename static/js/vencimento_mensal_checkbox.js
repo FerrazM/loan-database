@@ -15,24 +15,12 @@ $(document).ready(function () {
             $('input[name="checkbox1"]').prop('checked', false);
             var nextMonth = new Date();
             nextMonth.setMonth(nextMonth.getMonth() + 1);
-            var nextMonthDD = dd; // mesmo dia do mês atual
+            var nextMonthDD = nextMonth.getDate();
             var nextMonthMM = nextMonth.getMonth() + 1;
             var nextMonthYYYY = nextMonth.getFullYear();
-            if (nextMonthMM < 10) {
-                nextMonthMM = '0' + nextMonthMM;
+            if (nextMonthDD < 10) {
+                nextMonthDD = '0' + nextMonthDD;
             }
-            var nextMonthDate = nextMonthDD + '/' + nextMonthMM + '/' + nextMonthYYYY;
-            $('input[name="vencimento_mensal"]').val(nextMonthDate);
-        }
-    });
-
-    $('input[name="checkbox1"]').change(function () {
-        if ($(this).is(':checked')) {
-            var nextMonth = new Date();
-            nextMonth.setMonth(nextMonth.getMonth() + 1);
-            var nextMonthDD = dd; // mesmo dia do mês atual
-            var nextMonthMM = nextMonth.getMonth() + 1;
-            var nextMonthYYYY = nextMonth.getFullYear();
             if (nextMonthMM < 10) {
                 nextMonthMM = '0' + nextMonthMM;
             }
