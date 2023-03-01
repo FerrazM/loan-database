@@ -21,7 +21,7 @@ $(document).ready(function () {
             if (nextMonthMM < 10) {
                 nextMonthMM = '0' + nextMonthMM;
             }
-            var nextMonthDate = nextMonthDD + '/' + nextMonthMM + '/' + nextMonthYYYY;
+            var nextMonthDate = dd + '/' + nextMonthMM + '/' + nextMonthYYYY; // mantém o mesmo dia do mês atual
             $('input[name="vencimento_mensal"]').val(nextMonthDate);
         }
     });
@@ -36,8 +36,10 @@ $(document).ready(function () {
             if (nextMonthMM < 10) {
                 nextMonthMM = '0' + nextMonthMM;
             }
-            var nextMonthDate = nextMonthDD + '/' + nextMonthMM + '/' + nextMonthYYYY;
+            var nextMonthDate = dd + '/' + nextMonthMM + '/' + nextMonthYYYY; // mantém o mesmo dia do mês atual
             $('input[name="vencimento_mensal"]').val(nextMonthDate);
         }
     });
 });
+
+
