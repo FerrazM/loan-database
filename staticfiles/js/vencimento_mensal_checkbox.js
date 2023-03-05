@@ -10,19 +10,24 @@ $(document).ready(function () {
         mm = '0' + mm;
     }
     today = dd + '/' + mm + '/' + yyyy;
+
+    var savedDay = $('input[name="vencimento_mensal"]').val().split('/')[0];
+
     $('input[name="vencimento_mensal"]').change(function () {
         if ($(this).val() === today) {
             $('input[name="checkbox1"]').prop('checked', false);
             var nextMonth = new Date();
             nextMonth.setMonth(nextMonth.getMonth() + 1);
-            var nextMonthDD = dd; // mesmo dia do mês atual
+            var nextMonthDD = savedDay; // mesmo dia do mês anterior
             var nextMonthMM = nextMonth.getMonth() + 1;
             var nextMonthYYYY = nextMonth.getFullYear();
             if (nextMonthMM < 10) {
                 nextMonthMM = '0' + nextMonthMM;
             }
-            var nextMonthDate = dd + '/' + nextMonthMM + '/' + nextMonthYYYY; // mantém o mesmo dia do mês atual
+            var nextMonthDate = nextMonthDD + '/' + nextMonthMM + '/' + nextMonthYYYY;
             $('input[name="vencimento_mensal"]').val(nextMonthDate);
+        } else {
+            savedDay = $(this).val().split('/')[0];
         }
     });
 
@@ -30,16 +35,18 @@ $(document).ready(function () {
         if ($(this).is(':checked')) {
             var nextMonth = new Date();
             nextMonth.setMonth(nextMonth.getMonth() + 1);
-            var nextMonthDD = dd; // mesmo dia do mês atual
+            var nextMonthDD = savedDay; // mesmo dia do mês anterior
             var nextMonthMM = nextMonth.getMonth() + 1;
             var nextMonthYYYY = nextMonth.getFullYear();
             if (nextMonthMM < 10) {
                 nextMonthMM = '0' + nextMonthMM;
             }
-            var nextMonthDate = dd + '/' + nextMonthMM + '/' + nextMonthYYYY; // mantém o mesmo dia do mês atual
+            var nextMonthDate = nextMonthDD + '/' + nextMonthMM + '/' + nextMonthYYYY;
             $('input[name="vencimento_mensal"]').val(nextMonthDate);
         }
     });
 });
+
+
 
 
