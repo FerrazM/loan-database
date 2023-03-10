@@ -3,37 +3,26 @@
 {% block conteudo %}
 <h1 class='container' style ='text-align: center; margin-bottom:50px;'>Lista de Clientes</h1>
 <div style= "white-space: nowrap;" class='container'>
-<button style='margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'novo_emprestimo' %}">Novo Cliente</a></button>
-<button style='margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'balanco' %}">Balanço Total</a></button>
-<button style='margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'balanco_mensal' %}">Balanço Período</a></button>
-<button style='margin-bottom:-40px;' class='btn btn-success'><a  style = 'color: white;' href="{% url 'divida_paga' %}">Dívida Total Paga</a></button>
-  
 <table class= 'container table'>
     <table class= 'container table table-striped table-bordered' id="tabela-clientes">
         <thead>
             <tr style="text-align: center;">
                 <th>Cliente</th>
-                <th>Pagameto Mensal</th>
+                <th>Dívida Total Paga</th>
                 <th>Editar</th>
-                <th>Excluir</th>
-                <th>Mensalidade</th>
-                <th>Parcelas em Atraso</th>
             </tr>
         </thead>
 
     <tbody>
         {% for dado in dados %}
         <tr style="text-align: center;">
-            <td><a href="{% url 'detalhe' dado.id %}">{{dado.nome}}</a></td> 
-            <td>{{dado.juros_mes}}</td>
-            <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
-            <td><button class = 'btn btn-danger'><a style = 'color: white;' href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
-            {% if dado.checkbox1 %}
-            <td style='text-align:center; background-color: green'><input  type='checkbox' id='checkbox1' checked disabled></td>
+            <td><a href="{% url 'detalhe' dado.id %}">{{dado.nome}}</a></td>      
+            {% if dado.checkbox2 %}
+            <td style='text-align:center; background-color: blue'><input  type='checkbox' id='checkbox2' checked disabled></td>
             {% else %}
-            <td style='text-align:center; background-color: red'><input  type='checkbox' id='checkbox1' disabled></td>
+            <td style='text-align:center; background-color: red'><input  type='checkbox' id='checkbox2' disabled></td>
             {% endif %}
-            <td class="{% if dado.parcelas_atrasadas == 0 %}bg-success{% else %}bg-danger{% endif %}">{{ dado.parcelas_atrasadas }}</td>       
+            <td><button class = 'btn btn-warning'><a style = 'color: white;' href="{% url 'editar' dado.id %}">Editar</a></button></td>
         </tr>
         {% endfor %}
     <tbody>
@@ -84,4 +73,3 @@
 
 </script>
 {% endblock %}
-

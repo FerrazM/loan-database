@@ -88,3 +88,11 @@ def balancomensal(request):
         })
     else:
         return render(request, 'loans/balanco_mensal.html')
+
+
+@login_required
+def pagos(request):
+    dados_cliente = {
+        'dados': Cliente.objects.filter(usuario=request.user)
+    }
+    return render(request, 'loans/divida_paga.html', dados_cliente)
