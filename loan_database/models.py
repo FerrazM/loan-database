@@ -41,7 +41,7 @@ class Cliente(models.Model):
         self.checkbox1_changed = False
 
     def save(self, *args, **kwargs):
-        if self.mensalidade_paga and not self.checkbox1_changed:
+        if self.checkbox1 and not self.checkbox1_changed:
             self.parcelas_pagas += 1
             self.checkbox1_changed = True
         super().save(*args, **kwargs)
