@@ -36,12 +36,15 @@ class Cliente(models.Model):
     divida_total_paga = models.BooleanField(
         default=False, verbose_name='Dívida Total Paga', name='checkbox2')
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.checkbox1_changed = False
 
-    def pagar_parcela(self):
-        if not self.checkbox1:
+    def save(self, *args, **kwargs):
+        if self.mensalidade_paga and not self.checkbox1_changed:
             self.parcelas_pagas += 1
-            self.checkbox1 = True
-            self.save()
+            self.checkbox1_changed = True
+        super().save(*args, **kwargs)
 
     @property
     def parcelas_restantes(self):
