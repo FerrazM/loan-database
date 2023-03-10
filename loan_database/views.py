@@ -8,7 +8,7 @@ from django.db.models import Sum
 @login_required
 def clientes(request):
     dados_cliente = {
-        'dados': Cliente.objects.filter(usuario=request.user)
+        'dados': Cliente.objects.filter(usuario=request.user).exclude(checkbox2=True)
     }
     return render(request, 'loans/clientes.html', dados_cliente)
 
