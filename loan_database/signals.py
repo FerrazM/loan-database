@@ -7,6 +7,6 @@ from .models import Cliente
 @receiver(post_save, sender=Cliente)
 def check_uncheck_checkbox1(sender, instance, **kwargs):
     today = timezone.now().date()
-    if instance.vencimento_mensal < today:
+    if instance.vencimento_mensal <= today:
         instance.checkbox1 = False
         instance.save(update_fields=['checkbox1'])
